@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<definitions name="process" targetNamespace="http://petals.ow2.org"
+	xmlns:tns="http://petals.ow2.org" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+	xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:sawsdl="http://www.w3.org/ns/sawsdl">
+	<!--
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		TYPE DEFINITION - List of types participating in this BPEL process The
+		BPEL Designer will generate default request and response types but you
+		can define or import any XML Schema type and use them as part of the
+		message types.
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	-->
+	<types>
+		<schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+			targetNamespace="http://petals.ow2.org" xmlns="http://www.w3.org/2001/XMLSchema">
+			<element name="processRequest">
+				<complexType>
+					<sequence>
+						<element name="input" type="string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="processResponse">
+				<complexType>
+					<sequence>
+						<element name="result" type="string" />
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</types>
+	<!--
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		MESSAGE TYPE DEFINITION - Definition of the message types used as part
+		of the port type defintions
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	-->
+	<message name="processRequestMessage">
+		<part name="payload" element="tns:processRequest" />
+	</message>
+	<message name="processResponseMessage">
+		<part name="payload" element="tns:processResponse" />
+	</message>
+	<!--
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		PORT TYPE DEFINITION - A port type groups a set of operations into a
+		logical service unit.
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	-->    
+
+    <!-- portType implemented by the process BPEL process -->
+	<portType name="process"
+		sawsdl:modelReference="http://www.w3.org/2002/ws/sawsdl/spec/ontology/purchaseorder#OrderConfirmation">
+		<operation name="process">
+			<input message="tns:processRequestMessage" />
+			<output message="tns:processResponseMessage" />
+		</operation>
+				
+	</portType>
+	
+	<sawsdl:attrExtensions
+		sawsdl:modelReference="http://www.w3.org/2002/ws/sawsdl/spec/ontology/purchaseorder#OrderConfirmation" />
+	
+	
+</definitions>

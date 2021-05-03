@@ -1,0 +1,39 @@
+			------
+			Javadocs
+			------
+			Nicolas Boissel-Dallier
+			------
+			------
+
+Javadocs
+   
+* EasyWSDL
+   
+   EasyWSDL's documentation is divided in two parts (as the project): <<<wsdl>>> for WSDL tags management and <<<schema>>> for XML Schema handling.
+   
+*---------------------------+-----------------+--------------------------------+
+|| Project Qname            || Version        || Link                          |
+*---------------------------+-----------------+--------------------------------+
+|  org.ow2.easywsdl.schema  | 2.1 | {{{./apidocs/schema/index.html}javadoc}}   |
+|  org.ow2.easywsdl.wsdl    | 2.1 | {{{./apidocs/wsdl/index.html}javadoc}}     |
+*---------------------------+-----------------+--------------------------------+
+   
+* Extensions
+
+*---------------------------+-----------------+--------------------------------+
+|| Project Qname            || Version        || Link                          |
+*---------------------------+-----------------+--------------------------------+
+|  org.ow2.easywsdl.extensions.multiple | 2.1 | {{{./apidocs/extensions/multiple/index.html}javadoc}}   |
+|  org.ow2.easywsdl.extensions.wsdl4complexwsdl | 2.1 | {{{./apidocs/extensions/complex/index.html}javadoc}}   |
+|  org.ow2.easywsdl.extensions.sawsdl | 2.1 | {{{./apidocs/extensions/sawsdl/index.html}javadoc}}   |
+|  org.ow2.easywsdl.extensions.wsdl4bpel | 2.1 | {{{./apidocs/extensions/wsdl4bpel/index.html}javadoc}}   |
+*---------------------------+-----------------+--------------------------------+
+
+* Tooling
+
+*---------------------------+-----------------+--------------------------------+
+|| Project Qname            || Version        || Link                          |
+*---------------------------+-----------------+--------------------------------+
+|  org.ow2.easywsdl.tooling.java2wsdl | 2.1 | {{{./apidocs/tooling/java2wsdl/index.html}javadoc}}   |
+|  org.ow2.easywsdl.tooling.xsd2xml | 2.1 | {{{./apidocs/tooling/xsd2xml/index.html}javadoc}}   |
+*---------------------------+-----------------+--------------------------------+

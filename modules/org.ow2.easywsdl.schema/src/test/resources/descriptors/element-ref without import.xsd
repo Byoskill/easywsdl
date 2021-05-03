@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified"
+	targetNamespace="http://foo.example.com/myNamespace"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://foo.example.com/myNamespace">
+
+	<xs:element name="myElt">
+        <xs:complexType>
+                <xs:sequence>
+                        <xs:element ref="xs:schema" />
+                        <xs:any />
+                </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

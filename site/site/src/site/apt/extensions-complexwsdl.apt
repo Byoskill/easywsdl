@@ -1,0 +1,65 @@
+			------
+			EasyWSDL extension - ComplexWSDL
+			------
+			Nicolas Boissel-Dallier
+			------
+			------
+			
+About EasyWSDL - ComplexWSDL
+
+* Overview
+
+   EasyWSDL - ComplexWSDL enables to group all imports to the main file in order to use description in distributed environment.
+   
+* Tutorial
+
+** Managing WSDL in distributed work
+
+   ComplexWSDL extension add two methods to use WSDL descriptions through a distributed environment. It manages import locations in order to use identically description in any server, whatever its connexion means. 
+   
+   The new methods allow to add all imports in the main description or to get back the initial document. All other functionalities are similar to EasyWSDL.
+   
++-----+
+// Read description
+WSDL4ComplexWsdlReader reader = WSDL4ComplexWsdlFactory.newInstance().newWSDL4ComplexWsdlReader();
+Description desc = reader.read(new URL("http://url/of/the/document.wsdl"));
+
+// Unify all import and include
+desc.addImportedDocumentsInWsdl();
+// Here, the description can be moved and used by any server (1)
+
+// Get back the initial WSDL description
+desc.deleteImportedDocumentsInWsdl();
++-----+
+
+	The unified document (1) looks like:
++-----+
+<?xml version="1.0" encoding="UTF-8"?>
+<ns1:definitions xmlns:ns1=[...]>
+	<ns2:importedDocuments xmlns:ns2="http://petals.ow2.org/wsdlExtensions" [...]>
+		<ns2:document location="xpath://description/importedDocuments/document/foobar.xsd" originalLocation="http://distant.server.com/foobar.xsd">
+			<!-- Imported document -->
+			[...]
+		</ns2:documents>
+		<!-- Other imported documents -->
+		[...]
+	</ns2:importedDocuments>
+	<!-- Initial WSDL description with relocated imports -->
+	[...]
+	<ns1:import location="xpath://description/importedDocuments/document/foobar.xsd">
+	[...]
+</ns1:definitions>
++-----+
+	Unfortunately, this document is not compliant with W3C standards/submissions. This extension must be used only when necessary.
+
+** Working with Maven2
+
+ The artifacts are available as Maven2 modules, you can add easyWSDL to your project POM like this
+
++-----+
+<dependency>
+  <groupId>org.ow2.easywsdl</groupId>
+  <artifactId>easywsdl-ext-wsdl4complexwsdl</artifactId>
+  <version>2.1</version>
+</dependency>
++-----+

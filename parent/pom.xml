@@ -1,0 +1,636 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <prerequisites>
+        <maven>2.0.7</maven>
+    </prerequisites>
+
+
+    <!-- ============== -->
+    <!-- Identification -->
+    <!-- ============== -->
+
+    <name>EasyWSDL parent</name>
+    <artifactId>easywsdl-parent</artifactId>
+    <groupId>org.ow2.easywsdl</groupId>
+    <packaging>pom</packaging>
+    <version>BYOSKILL-SNAPSHOT</version>
+
+    <organization>
+        <name>Petals Link (previously EBM WebSourcing)</name>
+        <url>http://www.petalslink.com</url>
+    </organization>
+
+    <inceptionYear>2008</inceptionYear>
+    <description>EasyWSDL Library</description>
+
+    <issueManagement>
+        <url>http://forge.objectweb.org/tracker/?group_id=334</url>
+    </issueManagement>
+
+    <!-- ============== -->
+    <!--  Distribution  -->
+    <!-- ============== -->
+    <distributionManagement>
+        <repository>
+            <id>ow2</id>
+            <name>OW2 Maven2 release repository</name>
+            <url>scp://jupiter.objectweb.org:/var/lib/gforge/chroot/home/groups/maven/htdocs/maven2</url>
+        </repository>
+        <snapshotRepository>
+            <id>ow2</id>
+            <name>OW2 Maven2 snapshot repository</name>
+            <url>scp://jupiter.objectweb.org:/var/lib/gforge/chroot/home/groups/maven/htdocs/maven2-snapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <scm>
+        <connection>scm:svn:svn://svn.forge.objectweb.org/svnroot/easywsdl/trunk/parent</connection>
+        <developerConnection>scm:svn:svn+ssh://nboissel@svn.forge.objectweb.org/svnroot/easywsdl/trunk/parent
+        </developerConnection>
+        <url>http://svn.forge.objectweb.org/cgi-bin/viewcvs.cgi/easywsdl/trunk/parent</url>
+    </scm>
+
+    <!-- ===== -->
+    <!-- Infos -->
+    <!-- ===== -->
+    <mailingLists>
+        <mailingList>
+            <name>EasyWSDL Source Code Notification</name>
+            <subscribe>easywsdl-commits-subscribe@ow2.org</subscribe>
+            <unsubscribe>easywsdl-commits-unsubscribe@ow2.org</unsubscribe>
+            <archive>http://mail-archive.objectweb.org/easywsdl-commits/index.html</archive>
+        </mailingList>
+        <mailingList>
+            <name>EasyWSDL Users Mailing List</name>
+            <subscribe>easywsdl-users-subscribe@ow2.org</subscribe>
+            <unsubscribe>easywsdl-users-unsubscribe@ow2.org</unsubscribe>
+            <archive>http://mail-archive.objectweb.org/easywsdl-users/index.html</archive>
+        </mailingList>
+        <mailingList>
+            <name>EasyWSDL Developers Mailing List</name>
+            <subscribe>easywsdl-dev-subscribe@ow2.org</subscribe>
+            <unsubscribe>easywsdl-dev-unsubscribe@ow2.org</unsubscribe>
+            <archive>http://mail-archive.objectweb.org/easywsdl-dev/index.html</archive>
+        </mailingList>
+    </mailingLists>
+
+    <licenses>
+        <license>
+            <name>BSD License</name>
+            <url>
+                ../../license.txt
+            </url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Nicolas Boissel-Dallier</name>
+            <id>nboissel</id>
+            <email>nicolas.boissel-dallier@petalslink.com</email>
+            <organization>Petals Link</organization>
+            <roles>
+                <role>Project Leader</role>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Nicolas Salatge</name>
+            <id>nsalatge</id>
+            <email>nicolas.salatge@petalslink.com</email>
+            <organization>Petals Link</organization>
+            <roles>
+                <role>Architect</role>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Olivier Fabre</name>
+            <id>ofabre</id>
+            <email>olivier.fabre@petalslink.com</email>
+            <organization>Petals Link</organization>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Christophe Hamerling</name>
+            <id>chamerling</id>
+            <email>christophe.hamerling@petalslink.com</email>
+            <organization>Petals Link</organization>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Christophe Deneux</name>
+            <id>cdeneux</id>
+            <email>christophe.deneux@capgemini.com</email>
+            <organization>Capgemini</organization>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <properties>
+        <easywsdl.version>BYOSKILL-SNAPSHOT</easywsdl.version>
+        <easycommons.version>1.1</easycommons.version>
+        <cobertura.version>2.0-beta1</cobertura.version>
+        <site.version>2.0-beta-4</site.version>
+        <mprojectinfo.version>2.0-beta-3</mprojectinfo.version>
+        <easymock.version>2.2</easymock.version>
+        <umlgraph.version>4.6</umlgraph.version>
+        <topDirectoryLocation>..</topDirectoryLocation>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>OW2 Repository</name>
+            <url>http://maven.petalslink.com/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>maven</id>
+            <url>https://repo1.maven.org/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>ow2-snapshot-repo</id>
+            <name>OW2 Snapshot Repository</name>
+            <url>http://maven.ow2.org/maven2-snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>maven2-repository.dev.java.net</id>
+            <url>http://download.java.net/maven/2</url>
+        </repository>
+        <repository>
+            <id>maven-repository.dev.java.net</id>
+            <url>http://download.java.net/maven/1</url>
+            <layout>legacy</layout>
+        </repository>
+        <repository>
+            <id>maven2-repository.jboss.com</id>
+            <url>http://repository.jboss.com/maven2</url>
+        </repository>
+        <repository>
+            <id>private</id>
+            <name>Private Repository</name>
+            <url>
+                file:${basedir}/${topDirectoryLocation}/etc/maven/private-repository
+            </url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>JBOSS</id>
+            <name>JBoss Repository</name>
+            <url>http://repository.jboss.org/maven2/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>private</id>
+            <name>Private Repository</name>
+            <url>
+                file:${basedir}/${topDirectoryLocation}/etc/maven/private-repository
+            </url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>maven2-repository.dev.java.net</id>
+            <url>http://download.java.net/maven/2</url>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>maven-repository.dev.java.net</id>
+            <url>http://download.java.net/maven/1</url>
+            <layout>legacy</layout>
+        </pluginRepository>
+
+        <!--
+        This repository is needed by the maven-checkstyle-plugin.
+        Remove it when the release 2.2 will be available.
+          -->
+        <pluginRepository>
+            <id>apache.snapshots</id>
+            <name>Apache Snapshot Repository</name>
+            <url>
+                http://people.apache.org/repo/m2-snapshot-repository
+            </url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+
+        <!--
+        This repository is needed by the jaxb2-maven-plugin.
+          -->
+        <pluginRepository>
+            <id>codehaus.release</id>
+            <name>CodeHaus Release Repository</name>
+            <url>http://repository.codehaus.org</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- EasyWSDL -->
+            <dependency>
+                <groupId>org.ow2.easywsdl</groupId>
+                <artifactId>easywsdl-schema</artifactId>
+                <version>${easywsdl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ow2.easywsdl</groupId>
+                <artifactId>easywsdl-wsdl</artifactId>
+                <version>${easywsdl.version}</version>
+            </dependency>
+            <dependency>
+                <artifactId>easywsdl-ext-sawsdl</artifactId>
+                <groupId>org.ow2.easywsdl</groupId>
+                <version>${easywsdl.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <artifactId>easywsdl-ext-wsdl4bpel</artifactId>
+                <groupId>org.ow2.easywsdl</groupId>
+                <version>${easywsdl.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <artifactId>easywsdl-ext-wsdl4complexwsdl</artifactId>
+                <groupId>org.ow2.easywsdl</groupId>
+                <version>${easywsdl.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- EasyCommons -->
+            <dependency>
+                <artifactId>easycommons.uri</artifactId>
+                <groupId>com.ebmwebsourcing.easycommons</groupId>
+                <version>${easycommons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jvnet.jaxb2_commons</groupId>
+                <artifactId>jaxb2-basics</artifactId>
+                <version>0.12.0</version>
+
+            </dependency>
+            <dependency>
+                <artifactId>easycommons.logger</artifactId>
+                <groupId>com.ebmwebsourcing.easycommons</groupId>
+                <version>${easycommons.version}</version>
+            </dependency>
+
+            <!-- External dependencies -->
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.13</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.8.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ow2.spec.ee</groupId>
+                <artifactId>ow2-ejb-3.0-spec</artifactId>
+                <version>1.0-M1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.ant</groupId>
+                <artifactId>ant</artifactId>
+                <version>1.7.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jdom</groupId>
+                <artifactId>jdom</artifactId>
+                <version>1.1.3</version>
+            </dependency>
+
+            <!-- Test dependencies -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>3.8.1</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>wsdl4j</groupId>
+                <artifactId>wsdl4j</artifactId>
+                <version>1.6.3</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.woden</groupId>
+                <artifactId>woden-impl-dom</artifactId>
+                <version>1.0M8</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>xerces</groupId>
+                        <artifactId>xmlParserAPIs</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>sawsdl4j</groupId>
+                <artifactId>sawsdl4j</artifactId>
+                <version>3M</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>jaxen</groupId>
+                <artifactId>jaxen</artifactId>
+                <version>1.2.0</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>xerces</groupId>
+                        <artifactId>xercesImpl</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>xerces</groupId>
+                        <artifactId>xmlParserAPIs</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>xalan</groupId>
+                        <artifactId>xalan</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.saxon</groupId>
+                <artifactId>saxon</artifactId>
+                <version>8.7</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.saxon</groupId>
+                <artifactId>saxon-dom</artifactId>
+                <version>8.7</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jvnet.jaxb2_commons</groupId>
+                <artifactId>runtime</artifactId>
+                <version>0.4.1.5</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.sun.xml.bind</groupId>
+                        <artifactId>jaxb-impl</artifactId>
+                    </exclusion>
+
+                    <exclusion>
+                        <groupId>commons-lang</groupId>
+                        <artifactId>commons-lang</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>xerces</groupId>
+                        <artifactId>xercesImpl</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>xerces</groupId>
+                        <artifactId>xmlParserAPIs</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>xalan</groupId>
+                        <artifactId>xalan</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>2.6</version>
+            </dependency>
+            <dependency>
+                <groupId>org.easymock</groupId>
+                <artifactId>easymock</artifactId>
+                <version>${easymock.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.easymock</groupId>
+                <artifactId>easymockclassextension</artifactId>
+                <version>${easymock.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <profiles>
+        <!--
+        | The following profile will be used when developping EasyWSDL.
+        | It is activated by default.
+          -->
+        <profile>
+            <id>development</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <java.compiler.showWarnings>true</java.compiler.showWarnings>
+                <java.compiler.debug>true</java.compiler.debug>
+                <java.compiler.optimize>false</java.compiler.optimize>
+            </properties>
+        </profile>
+        <!--
+        | The following profile will be used when releasing EasyWSDL.
+          -->
+        <profile>
+            <id>release</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <java.compiler.showWarnings>false</java.compiler.showWarnings>
+                <java.compiler.debug>false</java.compiler.debug>
+                <java.compiler.optimize>true</java.compiler.optimize>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jvnet.jaxb2_commons</groupId>
+            <artifactId>runtime</artifactId>
+            <version>0.4.1.5</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.sun.xml.bind</groupId>
+                    <artifactId>jaxb-impl</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-lang</groupId>
+                    <artifactId>commons-lang</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>xerces</groupId>
+                    <artifactId>xercesImpl</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>xerces</groupId>
+                    <artifactId>xmlParserAPIs</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>xalan</groupId>
+                    <artifactId>xalan</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jaxb-impl</artifactId>
+                    <groupId>com.sun.xml.bind</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <artifactId>easycommons.logger</artifactId>
+            <groupId>com.ebmwebsourcing.easycommons</groupId>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>3.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>3.0.1</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>3.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>2.1</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                                <addExtensions/>
+                                <classpathPrefix/>
+                            </manifest>
+                            <manifestEntries>
+                                <mode>development</mode>
+                                <url>${pom.url}</url>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <systemProperties>
+                            <property>
+                                <name>java.util.logging.manager</name>
+                                <value>com.ebmwebsourcing.easycommons.logger.LogManager</value>
+                            </property>
+                        </systemProperties>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                    <configuration>
+                        <release>11</release>
+                        <showDeprecation>true</showDeprecation>
+                        <showWarnings>${java.compiler.showWarnings}</showWarnings>
+                        <fork>false</fork>
+                        <debug>${java.compiler.debug}</debug>
+                        <optimize>${java.compiler.optimize}</optimize>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.jvnet.jaxb2.maven2</groupId>
+                    <artifactId>maven-jaxb2-plugin</artifactId>
+                    <version>0.14.0</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>generate</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <extension>true</extension>
+                        <plugins>
+                            <plugin>
+                                <groupId>org.jvnet.jaxb2_commons</groupId>
+                                <artifactId>jaxb2-basics</artifactId>
+                                <version>0.12.0</version>
+                            </plugin>
+                        </plugins>
+                        <args>
+                            <arg>-XtoString</arg>
+                            <arg>-Xequals</arg>
+                            <arg>-XhashCode</arg>
+                            <arg>-Xcopyable</arg>
+                        </args>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <defaultGoal>install</defaultGoal>
+    </build>
+</project>

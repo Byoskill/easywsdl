@@ -1,0 +1,69 @@
+			------
+			EasyWSDL extension - MultipleExtensions
+			------
+			Nicolas Boissel-Dallier
+			------
+			------
+			
+About EasyWSDL - MultipleExtensions
+
+* Overview
+
+   EasyWSDL - MultipleExtensions enables to use all EasyWSDL extensions in any service description.
+   
+* Tutorial
+
+** Managing Multiple Extensions
+
+	Reading and writing are almost similar to others extensions except use of MultipleExt classes instead of classical.
+	
++----------------------------------------------------------------------------------+
+// Read a WSDL file precising expected extensions
+MultipleExtReader reader = MultipleExtFactory.newInstance().newMultipleExtReader();
+List<ExtensionFactory> factories = new ArrayList<ExtensionFactory>();
+factories.add(SAWSDLFactory.newInstance());
+Description desc = reader.read(factories, new URL("http://url/of/the/document.wsdl"));
+// Here, the reader will prepare description in order to include directly SAWSDL tags
+
+// We also can create a simple reader which only contains classical description
+Description simpleDesc = reader.read(new URL("http://url/of/the/document.wsdl"));
+
+// Write document
+MultipleExtWriter writer = MultipleExtFactory.newInstance().newMultipleExtWriter();
+Document doc = writer.getDocument(desc);
+
+// Create description
+Description desc = MultipleExtFactory.newInstance().newMultipleExtDescription();
++----------------------------------------------------------------------------------+
+
+	Then, a simple method allows to switch between different extensions.
+	
++----------------------------------------------------------------------------------+
+// Using the "find" method, we can access to any extension specific methods
+org.ow2.easywsdl.extensions.sawsdl.api.Description sawsdlDesc = null;
+sawsdlDesc = desc.find(SAWSDLFactory.newInstance());
+System.out.println(sawsdlDesc.getModelReference().toString());
+
+// If an unexpected extension is called, the MultipleExtension plugin will 
+// add new methods automatically to the main description
+org.ow2.easywsdl.extensions.wsdl4bpel.api.Description wsdl4bpelDesc = null;
+wsdl4bpelDesc = desc.find(WSDL4BPELFactory.newInstance());
+System.out.println(wsdl4bpelDesc.getPartnerLinkTypes().get(0).getQName());
+// Of course, this second "find" call will take more time than the first
++----------------------------------------------------------------------------------+
+
+	That's all! 
+
+** Working with Maven2
+
+ The artifacts are available as Maven2 modules, you can add easyWSDL to your project POM like this
+
++-----+
+<dependency>
+  <groupId>org.ow2.easywsdl</groupId>
+  <artifactId>easywsdl-ext-multiple</artifactId>
+  <version>2.1</version>
+</dependency>
+
+<!-- Then all expected extensions -->
++-----+

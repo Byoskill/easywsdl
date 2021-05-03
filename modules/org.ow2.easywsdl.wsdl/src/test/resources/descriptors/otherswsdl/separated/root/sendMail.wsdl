@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<wsdl:definitions name="SendMail"
+        targetNamespace="http://acme.fr"
+        xmlns:tns="http://acme.fr"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:sendMailInterface="http://petals.ow2.org/components/mail/version-3.0">
+    
+  <wsdl:import namespace="http://petals.ow2.org/components/mail/version-3.0"
+		location="sendMailInterface.wsdl">
+	</wsdl:import>
+	
+  <wsdl:binding name="SendMailBinding" type="sendMailInterface:SendMail">
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="send">
+  		<soap:operation soapAction="{http://acme.fr}send" />
+  		<wsdl:input>
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:fault name="ioFault">
+			<soap:fault use="literal" name="fault" />
+		</wsdl:fault>
+		<wsdl:fault name="missingElementFault">
+			<soap:fault use="literal" name="fault" />
+		</wsdl:fault>
+  	</wsdl:operation>
+  </wsdl:binding>
+
+  <wsdl:service name="SendMailDefense">
+    <wsdl:port binding="tns:SendMailBinding" name="SendMailPort">
+      <soap:address location="SendMailtestEndpoint"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

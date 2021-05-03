@@ -1,0 +1,36 @@
+			------
+			What is EasyWSDL Toolbox
+			------
+			------
+			------
+		
+EasyWSDL Toolbox
+
+* Product overview
+
+   EasyWSDL Toolbox is a powerful WSDL parsing library. It can be used to parse both WSDL 1.1 and WSDL 2.0 descriptions and manipulates them in an unified object model (based on the WSDL 2.0 entities).
+   
+   EasyWSDL is already used in three open sources products:
+   
+   * {{{http://dragon.ow2.org}Petals Master}} SOA Governance Platform, 
+   
+   * {{{http://petals.ow2.org}Petals Entreprise Service Bus}} and
+   
+   * {{{http://easybpel.petalslink.com}EasyBPEL}} Process orchestration.
+   
+   
+* Involved in research projects
+
+   EasyWSDL is supported both by {{{http://www.semeuse.org}SemEUsE}} and {{{http://www.soa4all.eu}SOA4All}} projects.
+
+** French research agency project: SemEUsE
+
+[./images/semeuse-logo.png] SemEUsE: Semantique pour bus de service
+   
+   Development of a 'context-aware' semantic service infrastructure, for design-time and run-time.
+   
+** European project: SOA4All
+
+[./images/soa4all-logo.png] SOA4All: Service Oriented Architecture for All
+   
+   Comprehensive framework and infrastructure to integrate billion of services with semantic description. (FP7,IST,IP).

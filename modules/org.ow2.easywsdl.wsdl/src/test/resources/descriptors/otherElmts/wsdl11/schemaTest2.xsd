@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://petals.ow2.org/schemaTest2" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://petals.ow2.org/schemaTest2">
+
+    <complexType name="Address">
+    	<sequence>
+    		<element name="City" type="string"></element>
+    	</sequence>
+    </complexType>
+</schema>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+	<properties>
+		<title>PEtALS JBI Descriptor bean</title>
+		<author email="petals-dev@ow2.org">PEtALS Team</author>
+	</properties>
+	<body>
+	    <release version="1.4" date="2009-..-.." description="...">
+	    	<action dev="cdeneux" type="update">
+				Use URL instead of URI in WSDL reader.
+			</action>
+	    	<action dev="cdeneux" type="update">
+				Move unpublic API into a private part.
+			</action>
+	    </release>
+	</body>
+</document>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://bibiwsserv.techfak.uni-bielefeld.de/rose/axis/rosePort"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<import namespace="http://xml.apache.org/xml-soap" />
+	<import namespace="http://hobit.sourceforge.net/xsds/20060403/hobitTypes" />
+	<import namespace="http://schemas.bioservices.net/2005/biotypes" />
+	<import namespace="http://hobit.sourceforge.net/xsds/20060201/alignmentML" />
+	<import namespace="http://bibiserv.techfak.uni-bielefeld.de/xsd/2005/11/phyloML" />
+	<import namespace="http://hobit.sourceforge.net/xsds/20060201/sequenceML" />
+	<import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+	<complexType name="ArrayOf_xs_anyType">
+		<complexContent>
+			<restriction base="soapenc:Array">
+				<attribute ref="soapenc:arrayType" wsdl:arrayType="xs:anyType[]" />
+			</restriction>
+		</complexContent>
+	</complexType>
+	<complexType name="roseException">
+		<sequence />
+	</complexType>
+</schema>

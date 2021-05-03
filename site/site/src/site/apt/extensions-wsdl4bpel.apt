@@ -1,0 +1,61 @@
+			------
+			EasyWSDL extension - WSDL4BPEL
+			------
+			Nicolas Boissel-Dallier
+			------
+			------
+			
+About EasyWSDL - WSDL4BPEL
+
+* Overview
+
+   EasyWSDL4BPEL enables to handle <<<partnerLinks>>> BPEL extensions in service description.
+   
+* Tutorial
+
+** Managing WSDL with BPEL annotations
+
+   In order to manage <<<partnerLink>>> tags, we have to use WSDL4BPEL reader instead of classic WSDL reader. 
+
++----------------------------------------------------------------------------------+
+// Read description
+WSDL4BPELReader reader = WSDL4BPELFactory.newInstance().newWSDL4BPELReader();
+Description desc = reader.read(new URL("http://url/of/the/document.wsdl"));
+
+// Write document
+WSDL4BPELWriter writer = WSDL4BPELFactory.newInstance().newWSDL4BPELWriter();
+Document doc = writer.getDocument(desc);
+
+// Create description
+Description desc = WSDL4BPELFactory.newInstance().newWSDL4BPELDescription();
++----------------------------------------------------------------------------------+
+
+
+** Handling <<<partnerLink>>> tags
+
++---------------------------------------------------------------------------------------+
+// Read partnerLinks
+List<PartnerLinkType> partnerLinkTypes = desc.getPartnerLinkTypes()
+String name = partnerLinkTypes.get(0).getRoles().get(0).getName();
+
+// Add partnerLink
+desc.addPartnerLinkType(anyPartnerLink);
+
+// Remove all modelReferences
+desc.removeAllPartnerLinkTypes();
+
+// Remove a specific partnerLink
+desc.removePartnerLinkType(anotherPartnerLink);
++---------------------------------------------------------------------------------------+
+
+** Working with Maven2
+
+ The artifacts are available as Maven2 modules, you can add easyWSDL to your project POM like this
+
++-----+
+<dependency>
+  <groupId>org.ow2.easywsdl</groupId>
+  <artifactId>easywsdl-ext-wsdl4bpel</artifactId>
+  <version>2.1</version>
+</dependency>
++-----+

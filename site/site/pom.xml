@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>easywsdl-parent</artifactId>
+    <groupId>org.ow2.easywsdl</groupId>
+    <version>2.0</version>
+  </parent>
+
+  <groupId>org.ow2.easywsdl</groupId>
+  <artifactId>easywsdl-site</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>EasyWSDL Toolbox</name>
+  <url>http://easywsdl.ow2.org/</url>
+  
+  <description>EasyWSDL Toolbox is a WSDL parsing library. It can be used to parse both WSDL 1.1 and WSDL 2.0 descriptions and manipulates them in an abstract object model.</description>
+  
+  <properties>
+    <currentVersion>1.0-SNAPSHOT</currentVersion>
+	<topDirectoryLocation>../..</topDirectoryLocation>
+  </properties>
+
+    <distributionManagement>
+    	<site>
+		<id>easywsdl.site</id>
+		<name>EasyWSDL Web Site</name>
+		<url>scp://jupiter.objectweb.org:/var/lib/gforge/chroot/home/groups/easywsdl/htdocs/</url>
+	</site>
+    </distributionManagement>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>apache.snapshots</id>
+      <name>Apache Snapshot Repository</name>
+      <url>http://people.apache.org/repo/m2-snapshot-repository</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>2.0-beta-7</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <configuration>
+          <outputEncoding>UTF-8</outputEncoding>
+        </configuration>
+        <executions>
+          <execution>
+            <id>jar</id>
+            <phase>site</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <jarOutputDirectory>${project.reporting.outputDirectory}</jarOutputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <reporting>
+    <excludeDefaults>true</excludeDefaults>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>2.1</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <!--<report>cim</report>-->
+              <report>issue-tracking</report>
+              <report>mailing-list</report>
+              <report>license</report>
+              <report>project-team</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <!-- Note: 'site' needs to be called twice to generate the linkcheck report
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-linkcheck-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </plugin>
+      -->
+    </plugins>
+  </reporting>
+
+  <!-- repeated here so that maven-site is not appended -->
+  <!--<scm>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/maven/site/trunk/</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/maven/site/trunk/</developerConnection>
+    <url>http://svn.apache.org/viewcvs.cgi/maven/site/trunk/</url>
+  </scm>-->
+
+  <!--<distributionManagement>
+    <site>
+      <id>apache.website</id>
+      <url>scp://people.apache.org/www/maven.apache.org/</url>
+    </site>
+  </distributionManagement>-->
+
+</project>

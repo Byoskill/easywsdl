@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+	<properties>
+		<title>PEtALS JBI Descriptor bean</title>
+		<author email="petals-dev@ow2.org">PEtALS Team</author>
+	</properties>
+	<body>
+	    <release version="1.4" date="2009-..-.." description="...">
+	    	<action dev="cdeneux" type="fix">
+				Fix the WSDL 1.1 implementation of Service.getInterface()
+				about multiple endpoints that does not share the same port type.
+			</action>
+			<action dev="cdeneux" type="update">
+				Use URL instead of URI in WSDL reader.
+			</action>
+	    	<action dev="cdeneux" type="update">
+				Move unpublic API into a private part.
+			</action>
+	    	<action dev="cdeneux" type="fix">
+				The document URI of a DOM document created by writing from a
+				Description can contain unencoded space.
+			</action>
+	    </release>
+		<release version="1.1" date="2009-..-.." description="...">
+			<action dev="fgardes" type="update">
+				Manage the Opaque URI's
+			</action>
+			<action dev="fgardes" type="update">
+				Optimize the base URI management
+				(no unecessary convertion from URI to String and from String to URI)
+			</action>
+			<action dev="fgardes" type="update">
+				Use the complete and original
+				parent URI to resolve imports and includes
+			</action>
+		</release>
+		<release version="1.0" date="2008-04-21" description="first ow2 release">
+			<action dev="rnaudin" type="update">
+				Refactor the entire project, use
+				JAX-B technology to
+				marshall/unmarshall from XML to Java classes
+			</action>
+			<action dev="rnaudin" type="remove">
+				Remove some utility classes. Some
+				are moved to the petals-kernel project
+			</action>
+			<action dev="chamerling" type="update">
+				Change the package names to
+				org.ow2.petals instead of
+				org.objectweb.petals
+			</action>
+			<action dev="rnaudin" type="fix">
+				Fix the generation of SU document
+				from JBI descriptor
+				objects
+			</action>
+			<action dev="rnaudin" type="fix">
+				Don't create empty Extensions
+				object when parsing JBI
+				descriptor
+			</action>
+			<action dev="cdeneux" type="add">
+				Add the extension
+				petals:properties-file needed to merge
+				from branch
+				petals-bc-soap-2.x: add external extensions
+				configuration capability,
+				jbi extensions can reference
+				external properties file.
+			</action>
+			<action dev="cdeneux" type="fix">
+				Setters should be "public" instead
+				of protected.
+			</action>
+			<action dev="cdeneux" type="add">
+				Add XML printing of the JBI
+				descriptor.
+			</action>
+		</release>
+	</body>
+</document>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://searchcustomer.services.stv.orange.com" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://searchcustomer.services.stv.orange.com">
+
+    <complexType name="Identification">
+    	<sequence>
+    		<element name="login" type="string"></element>
+    	</sequence>
+    </complexType>
+</schema>

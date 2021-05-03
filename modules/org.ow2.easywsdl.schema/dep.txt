@@ -1,0 +1,36 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.ow2.easywsdl:easywsdl-schema:jar:BYOSKILL-SNAPSHOT
+[WARNING] 'parent.relativePath' of POM org.ow2.easywsdl:easywsdl-schema:BYOSKILL-SNAPSHOT (/home/sleroy/git/easywsdl/modules/org.ow2.easywsdl.schema/pom.xml) points at org.ow2.easywsdl:module-root-builder instead of org.ow2.easywsdl:easywsdl-parent, please verify your project structure @ line 4, column 10
+[WARNING] 'repositories.repository.layout' for maven-repository.dev.java.net uses the unsupported value 'legacy', artifact resolution might fail. @ org.ow2.easywsdl:easywsdl-parent:BYOSKILL-SNAPSHOT, /home/sleroy/.m2/org/ow2/easywsdl/easywsdl-parent/BYOSKILL-SNAPSHOT/easywsdl-parent-BYOSKILL-SNAPSHOT.pom, line 188, column 21
+[WARNING] 'pluginRepositories.pluginRepository.layout' for maven-repository.dev.java.net uses the unsupported value 'legacy', artifact resolution might fail. @ org.ow2.easywsdl:easywsdl-parent:BYOSKILL-SNAPSHOT, /home/sleroy/.m2/org/ow2/easywsdl/easywsdl-parent/BYOSKILL-SNAPSHOT/easywsdl-parent-BYOSKILL-SNAPSHOT.pom, line 237, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------< org.ow2.easywsdl:easywsdl-schema >------------------
+[INFO] Building EasyWSDL - Schema manager BYOSKILL-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ easywsdl-schema ---
+[INFO] org.ow2.easywsdl:easywsdl-schema:jar:BYOSKILL-SNAPSHOT
+[INFO] +- com.ebmwebsourcing.easycommons:easycommons.uri:jar:1.1:compile
+[INFO] +- junit:junit:jar:3.8.1:test
+[INFO] +- org.jvnet.jaxb2_commons:runtime:jar:0.4.1.5:compile
+[INFO] +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] +- org.jvnet.jaxb2_commons:jaxb2-basics-runtime:jar:0.12.0:compile
+[INFO] +- com.ebmwebsourcing.easycommons:easycommons.logger:jar:1.1:compile
+[INFO] |  \- com.ebmwebsourcing.easycommons:easycommons.xml:jar:1.1:compile
+[INFO] |     +- org.jdom:jdom:jar:1.1.3:compile
+[INFO] |     +- org.apache.santuario:xmlsec:jar:1.4.2:compile
+[INFO] |     \- commons-logging:commons-logging:jar:1.1.1:compile
+[INFO] \- jakarta.xml.bind:jakarta.xml.bind-api:jar:3.0.1:compile
+[INFO]    \- com.sun.activation:jakarta.activation:jar:2.0.1:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.035 s
+[INFO] Finished at: 2021-05-03T16:03:09+02:00
+[INFO] ------------------------------------------------------------------------

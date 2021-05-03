@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/sample2" xmlns:tns="http://www.example.org/sample2" elementFormDefault="qualified">
+
+<import >
+
+</import>
+<include schemaLocation="">
+
+</include>
+
+<redefine  schemaLocation="">
+	<complexType name=""></complexType>
+</redefine>
+</schema>

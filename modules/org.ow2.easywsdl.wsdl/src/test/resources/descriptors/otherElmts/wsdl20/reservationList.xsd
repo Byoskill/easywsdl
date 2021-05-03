@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified"
+        targetNamespace="http://greath.example.com/2004/schemas/reservationList"
+        xmlns:tns="http://greath.example.com/2004/schemas/reservationList"
+        xmlns:details="http://greath.example.com/2004/schemas/reservationDetails"
+        xmlns:wsdli="http://www.w3.org/ns/wsdl-instance">
+
+        <import
+                namespace="http://www.w3.org/ns/wsdl-instance" 
+                schemaLocation="wsdl20-instance.xsd" />
+
+        <import
+                namespace="http://greath.example.com/2004/schemas/reservationDetails"
+                schemaLocation="reservationDetails.xsd" />
+
+        <element name="reservation">
+                <annotation>
+                        <documentation>
+                                A reservation contains the confirmation number, check-in
+                                and check-out dates, and a reference to a Reservation
+                                Details Web service.
+                        </documentation>
+                </annotation>
+                <complexType>
+                        <sequence>
+                                <element ref="details:confirmationNumber" />
+                                <element ref="details:checkInDate" />
+                                <element ref="details:checkOutDate" />
+                                <element ref="details:reservationDetailsSOAPEndpoint" />
+                        </sequence>
+                </complexType>
+        </element>
+
+        <element name="reservationList">
+                <annotation>
+                        <documentation>
+                                A reservation list contains a sequence of zero or more
+                                reservations.
+                        </documentation>
+                </annotation>
+                <complexType>
+                        <sequence>
+                                <element ref="tns:reservation" minOccurs="0"
+                                        maxOccurs="unbounded">
+                                </element>
+                        </sequence>
+                        <attribute ref="wsdli:wsdlLocation" />
+                </complexType>
+        </element>
+
+</schema>

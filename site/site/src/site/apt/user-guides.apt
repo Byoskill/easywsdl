@@ -1,0 +1,95 @@
+			------
+			User Guides
+			------
+			Nicolas Boissel-Dallier
+			------
+			------
+			
+EasyWSDL User Guide
+
+	Here is a small user guide in order to begin with EasyWSDL. For more information, refer to Java docs and extension pages.
+	
+* Version 2.1
+
+** Managing WSDL Definition/Description
+
+	EasyWSDL allows users to Read, Write and Create WSDL file from scratch. 
+	There are examples for each basic functionalities:
+
++-----+
+// Read a WSDL 1.1 or 2.0
+WSDLReader reader = WSDLFactory.newInstance().newWSDLReader();
+Description desc = reader.read(new URL("http://file/path/document.wsdl"));
+
+// Write a WSDL 1.1 or 2.0 (depend of desc version)
+Document doc = WSDLFactory.newInstance().newWSDLWriter().getDocument(desc);
+
+// Create a WSDL 1.1 or 2.0
+Description desc11 = WSDLFactory.newInstance().newDescription(WSDLVersionConstants.WSDL11);
+Description desc20 = WSDLFactory.newInstance().newDescription(WSDLVersionConstants.WSDL20);
++-----+
+   
+   As you can see, management of both WSDL version is uniform. 
+   
+*** Important
+   In order to keep good performances, you must instanciate only one WSDL reader/writer then use it everywhere (e.g. using a singleton pattern).
+   
+** Managing WSDL tags
+
+	Thanks to its uniform API, methods to handle WSDL 1.1 and 2.0 tags are similar.
+	All WSDL tags existing in both WSDL versions are handling in the same way. Here is an example for <<<Endpoints>>>:
+   
++-----+
+// Endpoints take place in services. 
+// Select a service
+Service service = desc.getServices().get(0);
+
+// List endpoints
+List<Endpoint> endpoints = service.getEndpoints(); 
+
+// Read specific endpoint
+Endpoint specificEndpoint = service.getEndpoint("endpointName");
+
+// Add endpoint to service
+service.addEndpoint(specificEndpoint);
+
+// Remove a specific enpoint
+service.removeEndpoint("endpointName");
+
+// Create endpoint
+Endpoint createdEndpoint = service.createEndpoint();
+service.addEndpoint(createdEndpoint);
++-----+
+
+	Attributes are handling in the same way, i.e. from the container object.
+	All objects allows users to:
+	* Get child tags or related elements: <<<getXxxxxxs()>>> which return a <<<List<Xxxxxx>>>> or <<<getYyyyyy()>>> which return a <<<Yyyyyy>>>)
+	* Set new child or related element: <<<addXxxxxx(childOrRelatedElement)>>> or <<<setYyyyyy(childOrRelatedElement)>>>
+	* Create a new child (not binded with parent tag): <<<createXxxxxx()>>> (bahave as a factory)
+	* Manage other tag specificities
+   
+** WSDL 1.1 <<<messages>>> tags
+   
+   The message tag from WSDL 1.1 make exception. It doesn't appear in the API, for consistencies reasons (All the API follows the WSDL 2.0 standard). In this case, you just have to cast your description in order to access to hidden methods. Example with messages reading:
+   
++-----+
+// List messages
+List<Message> messages = ((org.ow2.easywsdl.impl.wsdl11.DescriptionImpl)desc).getMessages();
++-----+
+
+
+** Working with Maven2
+
+ The artifacts are available as Maven2 modules, you can add easyWSDL to your project POM like this
+
++-----+
+<dependency>
+  <groupId>org.ow2.easywsdl</groupId>
+  <artifactId>easywsdl-wsdl</artifactId>
+  <version>2.1</version>
+</dependency>
++-----+
+
+** More information
+
+   For more information, see the {{{./javadocs.html}javadocs}}.

@@ -1,0 +1,80 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>easywsdl-parent</artifactId>
+		<groupId>org.ow2.easywsdl</groupId>
+		<version>BYOSKILL-SNAPSHOT</version>
+	</parent>
+
+	<name>EasyWSDL - Schema manager</name>
+	<artifactId>easywsdl-schema</artifactId>
+	<groupId>org.ow2.easywsdl</groupId>
+	<version>BYOSKILL-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<description />
+
+
+	<properties>
+		<topDirectoryLocation>..</topDirectoryLocation>
+	</properties>
+
+	<scm>
+		<connection>scm:svn:svn+ssh://svn.forge.objectweb.org/svnroot/easywsdl/trunk/modules/org.ow2.easywsdl.schema</connection>
+		<url>http://svn.forge.objectweb.org/cgi-bin/viewcvs.cgi/easywsdl/trunk/modules/org.ow2.easywsdl.schema</url>
+	  <developerConnection>scm:svn:svn+ssh://nboissel@svn.forge.objectweb.org/svnroot/easywsdl/trunk/parent/easywsdl-schema</developerConnection>
+  </scm>
+
+	<dependencies>
+		<dependency>
+				<artifactId>easycommons.uri</artifactId>
+				<groupId>com.ebmwebsourcing.easycommons</groupId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jvnet.jaxb2_commons</groupId>
+			<artifactId>runtime</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.xml.bind</groupId>
+					<artifactId>jaxb-impl</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jvnet.jaxb2_commons</groupId>
+			<artifactId>jaxb2-basics-runtime</artifactId>
+			<version>0.12.0</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+<!--
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<configuration>
+					<schemaDirectory>${basedir}/src/main/resources/schema</schemaDirectory>
+					<schemaIncludes>
+						<include>XMLSchema.xsd</include>
+					</schemaIncludes>
+					<bindingIncludes>
+						<include>binding.xjb</include>
+					</bindingIncludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	-->
+</project>

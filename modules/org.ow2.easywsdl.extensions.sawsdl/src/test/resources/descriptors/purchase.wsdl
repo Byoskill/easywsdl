@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:description targetNamespace="http://www.w3.org/2002/ws/sawsdl/spec/wsdl/order#"
+	xmlns:tns="http://www.w3.org/2002/ws/sawsdl/spec/wsdl/order#" xmlns="http://www.w3.org/2002/ws/sawsdl/spec/wsdl/order#"
+	xmlns:wsdl="http://www.w3.org/ns/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsoap="http://www.w3.org/ns/wsdl/soap" xmlns:sawsdl="http://www.w3.org/ns/sawsdl">
+	
+	<wsdl:types sawsdl:modelReference="http://www.w3.org/2002/ws/sawsdl/spec/ontology/purchaseorder#OrderConfirmation">
+		<xs:schema targetNamespace="http://www.w3.org/2002/ws/sawsdl/spec/wsdl/order#"
+			elementFormDefault="qualified">
+			<xs:element name="OrderRequest"
+				sawsdl:modelReference="http://www.w3.org/2002/ws/sawsdl/spec/ontology/purchaseorder#OrderRequest"
+				sawsdl:loweringSchemaMapping="http://www.w3.org/2002/ws/sawsdl/spec/mapping/RDFOnt2Request.xml">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="customerNo" type="xs:integer" />
+						<xs:element name="orderItem" type="item" minOccurs="1"
+							maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType name="item">
+				<xs:all>
+					<xs:element name="UPC" type="xs:string" />
+				</xs:all>
+				<xs:attribute name="quantity" type="xs:integer" />
+			</xs:complexType>
+			<xs:element name="OrderResponse" type="confirmation" />
+			<xs:simpleType name="confirmation"
+				sawsdl:modelReference="http://www.w3.org/2002/ws/sawsdl/spec/ontology/purchaseorder#OrderConfirmation">
+				<xs:restriction base="xs:string" sawsdl:modelReference="http://www.w3.org/2002/ws/sawsdl/spec/ontology/purchaseorder#ConfirmationRestriction">
+					<xs:enumeration value="Confirmed" sawsdl:modelReference="http://www.w3.org/2002/ws/sawsdl/spec/ontology/purchaseorder#ConfirmationConfirmed"/>
+					<xs:enumeration value="Pending" sawsdl:modelReference="http://www.w3.org/2002/ws/sawsdl/spec/ontology/purchaseorder#ConfirmationPending"/>
+					<xs:enumeration value="Rejected" sawsdl:modelReference="http://www.w3.org/2002/ws/sawsdl/spec/ontology/purchaseorder#ConfirmationRejected"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:interface name="Order"
+		sawsdl:modelReference="http://example.org/categorization/products/electronics">
+		<wsdl:operation name="order" pattern="http://www.w3.org/ns/wsdl/in-out"
+			sawsdl:modelReference="http://www.w3.org/2002/ws/sawsdl/spec/ontology/purchaseorder#RequestPurchaseOrder">
+			<wsdl:input element="OrderRequest" sawsdl:modelReference="http://www.w3.org/2002/ws/sawsdl/spec/ontology/purchaseorder#OrderConfirmation" />
+			<wsdl:output element="OrderResponse" sawsdl:modelReference="http://www.w3.org/2002/ws/sawsdl/spec/ontology/purchaseorder#OrderConfirmation" />
+		</wsdl:operation>
+	</wsdl:interface>
+	<wsdl:binding name="OrderSOAPBinding" interface="tns:Order"
+		type="http://www.w3.org/ns/wsdl/soap" wsoap:protocol="http://www.w3.org/2003/05/soap/bindings/HTTP/"
+		sawsdl:modelReference="http://www.w3.org/2002/ws/sawsdl/spec/ontology/purchaseorder#OrderConfirmation" >
+		<wsdl:operation ref="tns:order"
+			wsoap:mep="http://www.w3.org/2003/05/soap/mep/request-response" 
+			sawsdl:modelReference="http://www.w3.org/2002/ws/sawsdl/spec/ontology/purchaseorder#OrderConfirmation">
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="orderService" interface="tns:Order"
+	    sawsdl:modelReference="http://www.w3.org/2002/ws/sawsdl/spec/ontology/purchaseorder#OrderConfirmation" >
+		<wsdl:documentation>the orderEndpoint</wsdl:documentation>
+		<wsdl:endpoint name="orderEndpoint" binding="tns:OrderSOAPBinding"
+			sawsdl:modelReference="http://example.org/categorization/products/electronics"
+			address="http://greath.example.com/2004/order" />
+	</wsdl:service>
+</wsdl:description>

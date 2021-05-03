@@ -1,0 +1,88 @@
+			------
+			EasySAWSDL - The semantic annotation management extension
+			------
+			Nicolas Boissel-Dallier
+			------
+			------
+			
+About EasySAWSDL
+
+* Overview
+
+   EasySAWSDL is an extension for EasyWSDL which allows developers to handle semantic annotations in descriptions. This implementation of {{{http://www.w3.org/TR/sawsdl/}Semantic Annotations for WSDL and XML Schema W3C recommendation}} enables to read, write and create annotations directly from object model. 
+
+   Thanks to the uniform API of EasyWSDL, it enables integration in any external project, without care WSDL version we have to treat.
+
+   
+* Tutorial
+
+** Managing SAWSDL descriptions
+
+   In order to manage SAWSDL descriptions, we have to use SAWSDL reader instead of classic WSDL reader. 
+
++----------------------------------------------------------------------------------+
+// Read a SAWSDL description
+SAWSDLReader reader = SAWSDLFactory.newInstance().newSAWSDLReader();
+Description desc = reader.read(new URL("http://url/of/the/document.wsdl"));
+
+// Write a SAWSDL document
+SAWSDLWriter writer = SAWSDLFactory.newInstance().newSAWSDLWriter();
+Document doc = writer.getDocument(desc);
+
+// Create a SAWSDL description
+Description desc = SAWSDLFactory.newInstance().newSADescription();
++----------------------------------------------------------------------------------+
+
+
+** Handling <<<modelReference>>> attribute
+
+   The <<<modelReference>>> attribute is a simple reference to semantic concept(s) pointed by URI(s). This attribute can be used in every element of WSDL and XML Schema. Following methods are available on every object which extends SAWSDLElement.
+
++---------------------------------------------------------------------------------------+
+// List modelReference
+List<URI> modelReferences = anySAWSDLElement.getModelReferences()
+
+// Add modelReference (example with OWL ontology)
+anySAWSDLElement.addModelReference(new URI("http://ontology.owl#concept"));
+
+// Remove all modelReferences
+anySAWSDLElement.removeAllModelReferences();
+
+// Remove a specific modelReference
+anySAWSDLElement.removeModelReference(new URI("http://ontology.owl#notWantedConcept"));
++---------------------------------------------------------------------------------------+
+
+
+** Handling <<<liftingSchemaMapping>>> and <<<loweringSchemaMapping>>> attributes
+
+   The <<<liftingSchemaMapping>>> and <<<loweringSchemaMapping>>> refer to transformation files (or a part of it) which correspond to the translation from XML Schema to semantic equivalence and inversely. Those attributes can be used in XSD Elements and Types (which extend SASchemaElement).
+
++---------------------------------------------------------------------------------------+
+// List SchemaMapping
+List<URI> liftingSchemaMappings = anySAWSDLElement.getLiftingSchemaMappings()
+List<URI> loweringSchemaMappings = anySAWSDLElement.getLoweringSchemaMappings()
+
+// Add SchemaMapping
+anySAWSDLElement.addLiftingSchemaMapping(new URI("http://xsd2owl.xslt"));
+anySAWSDLElement.addLoweringSchemaMapping(new URI("http://owl2xsd.xslt"));
+
+// Remove all SchemaMappings
+anySAWSDLElement.removeLiftingSchemaMapping();
+anySAWSDLElement.removeLoweringSchemaMapping();
+
+// Remove a specific SchemaMapping
+anySAWSDLElement.removeLiftingSchemaMapping(new URI("http://xsd2rdf.xslt"));
+anySAWSDLElement.removeLoweringSchemaMapping(new URI("http://rdf2xsd.xslt"));
++---------------------------------------------------------------------------------------+
+
+** Working with Maven2
+
+ The artifacts are available as Maven2 modules, you can add easyWSDL to your project POM like this
+
++-----+
+<dependency>
+  <groupId>org.ow2.easywsdl</groupId>
+  <artifactId>easywsdl-ext-sawsdl</artifactId>
+  <version>2.1</version>
+</dependency>
++-----+

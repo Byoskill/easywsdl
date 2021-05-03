@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>easywsdl-parent</artifactId>
+		<groupId>org.ow2.easywsdl</groupId>
+		<version>BYOSKILL-SNAPSHOT</version>
+	</parent>
+
+	<name>EasyWSDL - Extensions SAWSDL manager</name>
+	<artifactId>easywsdl-ext-sawsdl</artifactId>
+	<groupId>org.ow2.easywsdl</groupId>
+	<version>BYOSKILL-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<properties>
+		<topDirectoryLocation>../..</topDirectoryLocation>
+	</properties>
+
+	<scm>
+		<connection>scm:svn:svn://svn.forge.objectweb.org/svnroot/easywsdl/trunk/modules/org.ow2.easywsdl.extensions.sawsdl</connection>
+		<developerConnection>scm:svn:svn+ssh://nboissel@svn.forge.objectweb.org/svnroot/easywsdl/trunk/modules/org.ow2.easywsdl.extensions.sawsdl</developerConnection>
+		<url>http://svn.forge.objectweb.org/cgi-bin/viewcvs.cgi/easywsdl/trunk/trunk/modules/org.ow2.easywsdl.extensions.sawsdl</url>
+	</scm>
+
+
+	<dependencies>
+		<dependency>
+			<artifactId>easywsdl-wsdl</artifactId>
+			<groupId>org.ow2.easywsdl</groupId>
+		</dependency>
+
+		<!-- Test dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>wsdl4j</groupId>
+			<artifactId>wsdl4j</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>sawsdl4j</groupId>
+			<artifactId>sawsdl4j</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+  			<groupId>jaxen</groupId>
+  			<artifactId>jaxen</artifactId>
+  			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<configuration>
+					<schemaDirectory>
+						${basedir}/src/main/resources/schema/annotation/
+					</schemaDirectory>
+					<schemaIncludes>
+						<include>sawsdl/sawsdl.xsd</include>
+					</schemaIncludes>
+					<bindingIncludes>
+						<include>binding.xjb</include>
+					</bindingIncludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
